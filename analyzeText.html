@@ -156,7 +156,7 @@
             return (angleDeg * Math.PI) / 180;
         }
 
-   async function analyzeText() {
+async function analyzeText() {
     const text = document.getElementById('textInput').value.trim();
     if (!text) {
         alert("Please enter some text to analyze.");
@@ -164,7 +164,7 @@
     }
 
     try {
-        // Call your Vercel API route (which proxies to HF)
+        // Call your Vercel API route
         const response = await fetch("/api/model_api", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -172,11 +172,18 @@
         });
 
         const result = await response.json();
+        console.log("API raw response:", result);
 
-        // Extract properly from API response
-        const sentiment = result.sentiment;
-        const probabilities = result.probabilities || {};
-        const confidence = result.confidence ? (result.confidence * 100).toFixed(1) : 0;
+        // --- FIX: extract correctly whether wrapped or not ---
+        const data = result.data ? result.data[0] : result;
+
+        if (!data || !data.sentiment) {
+            throw new Error("Invalid API response: " + JSON.stringify(result));
+        }
+
+        const sentiment = data.sentiment;
+        const probabilities = data.probabilities || {};
+        const confidence = data.confidence ? (data.confidence * 100).toFixed(1) : 0;
 
         const negativeProb = probabilities.negative || 0;
         const neutralProb = probabilities.neutral || 0;
@@ -229,11 +236,10 @@
         sentimentText.className = "sentiment-text " + sentiment;
 
     } catch (err) {
-        console.error(err);
+        console.error("Frontend error:", err);
         alert("Error connecting to Hugging Face Space API.");
     }
 }
-
 
 
 
@@ -267,6 +273,7 @@
 
 
 </html>
+
 
 
 
