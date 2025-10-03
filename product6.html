@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <button class="burger" id="burger">ⓘ</button>
+      <span class="header-title">Sentiment Dashboard</span>
+    </div>
+    <a href="index.html" class="home-btn">Home</a>
+  </header>
+
+  <!-- SIDEBAR -->
+<aside id="sidebar" class="sidebar">
+ <h2 class="sidebar-label">PRODUCT DETAILS</h2>
+  <p><strong>Model:</strong> <span>Core 200S-P</span></p>
+  <p><strong>Color:</strong> <span>White </span></p>
+  <p><strong>Brand:</strong> <span>LEVOIT</span></p>
+  <p><strong>Dimensions:</strong> <span>8.1"D x 8.1"W x 12.6"H</span></p>
+  <p><strong>Floor Area:</strong> <span>675 sq. ft</span></p>
+  <p><strong>Specification Met:</strong> <span>CARB Certified, ETL Certified, FCC Certified</span></p>
+  <p><strong>Power Source:</strong> <span>AC</span></p>
+  <p><strong>Weight:</strong> <span>6.6 lbs</span></p>
+  <p><strong>Control Method:</strong> <span>App, Touch, Voice</span></p>
+  <p><strong>Filter Type:</strong> <span>3-in-1 Filter</span></p>
+</aside>
+
+  <!-- MAIN DASHBOARD GRID -->
+  <main class="dashboard-container">
+    <div class="left-column">
+
+      <!-- Product Name + Review Breakdown -->
+      <div class="card review-photo">
+
+        <!-- Product Image -->
+        <div class="product-img-wrapper">
+          <img id="productImg"
+            src="https://levoit.com/cdn/shop/products/levoit-core-200s-smart-air-purifier-961887.jpg?v=1706049779&width=768"
+            alt="Product Image"
+            class="product-img" />
+        </div>
+
+        <!-- Center gauge chart and label -->
+        <div class="gauge-wrapper">
+
+          <!-- Product Name -->
+          <h3 id="productName" class="product-name"></h3>
+
+          <!-- Gauge -->
+          <div class="gauge-container">
+            <canvas id="gaugeChart" width="200" height="200"></canvas>
+          </div>
+
+          <!-- Sentiment Label -->
+          <div class="sentiment-label">Positive</div>
+        </div>
+
+        <!-- Average rating -->
+        <div class="avg-rating">
+          <div id="avgRating" class="rating-value">0.00</div>
+          <div class="rating-sub">out of 5</div>
+        </div>
+
+      </div>
+
+      <!-- Wordcloud -->
+      <div class="card">
+        <h3>Wordcloud</h3>
+        <img id="wordcloudImg" alt="Wordcloud" class="wordcloud-img">
+      </div>
+    </div>
+
+    <div class="right-column">
+
+      <!-- Comment Sentiments -->
+      <div class="card commentSentiment">
+
+        <h3 class="comment-title">Comment Sentiment</h3>
+
+        <div class="comment-container">
+          <!-- Donut -->
+          <div class="donut-wrapper">
+            <canvas id="sentimentDonut" width="180" height="180"></canvas>
+          </div>
+
+          <!-- Breakdown -->
+          <div class="sentiment-breakdown">
+            <div class="sentiment-item positive">
+              <i class="fa-solid fa-thumbs-up"></i>
+              <span id="posPct">0%</span>
+              <span>Positive</span>
+            </div>
+            <div class="sentiment-item negative">
+              <i class="fa-solid fa-thumbs-down"></i>
+              <span id="negPct">0%</span>
+              <span>Negative</span>
+            </div>
+            <div class="sentiment-item neutral">
+              <i class="fa-solid fa-hand-point-right"></i>
+              <span id="neuPct">0%</span>
+              <span>Neutral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card customerLoves">
+        <h3>Top Customer Descriptions</h3>
+        <ul id="lovesList"></ul>
+      </div>
+
+      <div class="card reviewHighlights">
+        <h3>Review Snippets</h3>
+        <ul id="highlightsList"></ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <p>&copy; 2025 Levoit. All product photos and brand assets belong to Levoit.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="dashboard6.js"></script>
+
+</body>
+
+</html>
