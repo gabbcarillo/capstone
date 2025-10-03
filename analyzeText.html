@@ -164,7 +164,6 @@ async function analyzeText() {
     }
 
     try {
-        // Call your Vercel API route
         const response = await fetch("/api/model_api", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -174,16 +173,14 @@ async function analyzeText() {
         const result = await response.json();
         console.log("API raw response:", result);
 
-        // --- FIX: extract correctly whether wrapped or not ---
-        const data = result.data ? result.data[0] : result;
+        // ✅ Directly use result since your API returns flat JSON
+        const sentiment = result.sentiment || null;
+        const confidence = result.confidence ? (result.confidence * 100).toFixed(1) : 0;
+        const probabilities = result.probabilities || {};
 
-        if (!data || !data.sentiment) {
+        if (!sentiment) {
             throw new Error("Invalid API response: " + JSON.stringify(result));
         }
-
-        const sentiment = data.sentiment;
-        const probabilities = data.probabilities || {};
-        const confidence = data.confidence ? (data.confidence * 100).toFixed(1) : 0;
 
         const negativeProb = probabilities.negative || 0;
         const neutralProb = probabilities.neutral || 0;
@@ -273,6 +270,7 @@ async function analyzeText() {
 
 
 </html>
+
 
 
 
