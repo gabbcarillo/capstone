@@ -1,0 +1,57 @@
+{
+    "product_name": "Levoit Core ®  Mini-P Air Purifier",
+    "avg_rating": 3.16,
+    "sentiment_breakdown": {
+        "positive": 76,
+        "negative": 14,
+        "neutral": 10
+    },
+    "customer_descriptions": [
+        {
+            "label": "quiet",
+            "percent": 84
+        },
+        {
+            "label": "good",
+            "percent": 80
+        },
+        {
+            "label": "great",
+            "percent": 77
+        },
+        {
+            "label": "clean",
+            "percent": 61
+        },
+        {
+            "label": "easy",
+            "percent": 40
+        },
+        {
+            "label": "dust",
+            "percent": 32
+        },
+        {
+            "label": "top",
+            "percent": 25
+        },
+        {
+            "label": "nice",
+            "percent": 24
+        },
+        {
+            "label": "loud",
+            "percent": 23
+        },
+        {
+            "label": "bad",
+            "percent": 23
+        }
+    ],
+    "sample_reviews": [
+        "purchased for tenant who lives in my rental property, I was told the product works perfectly, and they were quite pleased with the air quality. Definitely a good choice for this purchase.",
+        "This is an excellent product...just the right size, 3 speeds to choose from, very easy to use, and even looks great sitting where you place it. I loved it so much that I bought a second one for another room.",
+        "Quiet, works well and perfect for an office setting. Easy to set up, the cord is a little short but great for on top of a desk"
+    ],
+    "wordcloud_file": "dashboard_data/product1_wc.png"
+}

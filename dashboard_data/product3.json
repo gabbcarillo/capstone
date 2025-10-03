@@ -1,0 +1,57 @@
+{
+    "product_name": "Levoit Vital 100 Air Purifier",
+    "avg_rating": 2.61,
+    "sentiment_breakdown": {
+        "positive": 70,
+        "negative": 22,
+        "neutral": 8
+    },
+    "customer_descriptions": [
+        {
+            "label": "good",
+            "percent": 133
+        },
+        {
+            "label": "great",
+            "percent": 120
+        },
+        {
+            "label": "quiet",
+            "percent": 106
+        },
+        {
+            "label": "clean",
+            "percent": 93
+        },
+        {
+            "label": "loud",
+            "percent": 64
+        },
+        {
+            "label": "easy",
+            "percent": 60
+        },
+        {
+            "label": "bad",
+            "percent": 53
+        },
+        {
+            "label": "expensive",
+            "percent": 45
+        },
+        {
+            "label": "dust",
+            "percent": 42
+        },
+        {
+            "label": "nice",
+            "percent": 35
+        }
+    ],
+    "sample_reviews": [
+        "This is our second LEVOIT purifier and I love how it can purify the air in our whole house. The cool think is the monitor that shows the quality of indoor air.",
+        "I love this thing. So very easy to use and cleans the air both from dust and viral particles. I wish I had bought it years ago.",
+        "I could not breathe due to pet allergies before getting this. I absolutely love it!  Less dusting too!"
+    ],
+    "wordcloud_file": "dashboard_data/product3_wc.png"
+}

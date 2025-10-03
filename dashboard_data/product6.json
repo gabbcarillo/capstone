@@ -1,0 +1,57 @@
+{
+    "product_name": "Levoit Core ®  200S Smart Air Purifier",
+    "avg_rating": 2.79,
+    "sentiment_breakdown": {
+        "positive": 69,
+        "negative": 20,
+        "neutral": 10
+    },
+    "customer_descriptions": [
+        {
+            "label": "great",
+            "percent": 84
+        },
+        {
+            "label": "good",
+            "percent": 75
+        },
+        {
+            "label": "quiet",
+            "percent": 66
+        },
+        {
+            "label": "clean",
+            "percent": 53
+        },
+        {
+            "label": "loud",
+            "percent": 53
+        },
+        {
+            "label": "easy",
+            "percent": 45
+        },
+        {
+            "label": "bad",
+            "percent": 39
+        },
+        {
+            "label": "smart",
+            "percent": 35
+        },
+        {
+            "label": "dust",
+            "percent": 22
+        },
+        {
+            "label": "fine",
+            "percent": 22
+        }
+    ],
+    "sample_reviews": [
+        "Spring brings the dust, pollen, and mold. Basically the spring onslaught of seasonal allergies.  After a few days of headaches, I needed to get something.  Basic research quickly led me to this air purifierPros:- very quite- it works- smart control through the app- easy to operate- optional night lightCons:- OEM filters are expensive- the app is filled with other clutter and noise- can be tricky to create auto-programs for the deviceWould I recommend to others:  YesWould I purchase again:  Yes",
+        "Love our Levoit Air Purifier. We live RV life and it has been a game changer in the RV. I have seasonal allergies and dust will get me sometimes. It has been such a life saver when out west.",
+        "My new Core 200s is working very well."
+    ],
+    "wordcloud_file": "dashboard_data/product6_wc.png"
+}
