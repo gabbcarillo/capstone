@@ -6,25 +6,20 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      "https://huggingface.co/spaces/gabb11/sentiment_analyzer/api/predict",
+      "https://gabb11-sentiment-analyzer.hf.space/run/predict",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text })
+        body: JSON.stringify({ data: [text] })  // 👈 HF Spaces expect {data:[...]}
       }
     );
 
-    if (!response.ok) {
-      throw new Error(`HF API returned ${response.status}`);
-    }
+    const result = await response.json();
 
-    const prediction = await response.json();
-
-    // Forward the exact response from Hugging Face Space
-    res.status(200).json(prediction);
-
+    // Hugging Face returns {"data": [ ... ]}, so unwrap it
+    res.status(200).json(result.data ? result.data[0] : result);
   } catch (err) {
-    console.error("HF API error:", err);
+    console.error(err);
     res.status(500).json({ error: "Error connecting to Hugging Face Space API" });
   }
 }
