@@ -212,7 +212,7 @@ async function analyzeText() {
         alert("Failed to connect to Hugging Face Space API.");
     }
 }
-       // Clear button const textInput = document.getElementById("textInput"); const clearBtn = document.querySelector(".clear-btn"); textInput.addEventListener("input", () => { clearBtn.style.display = textInput.value ? "block" : "none"; }); function clearText() { textInput.value = ""; clearBtn.style.display = "none"; document.getElementById("results").style.display = "none"; } // Enter key handler textInput.addEventListener("keydown", (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); analyzeText(); } });
+       Clear button const textInput = document.getElementById("textInput"); const clearBtn = document.querySelector(".clear-btn"); textInput.addEventListener("input", () => { clearBtn.style.display = textInput.value ? "block" : "none"; }); function clearText() { textInput.value = ""; clearBtn.style.display = "none"; document.getElementById("results").style.display = "none"; } // Enter key handler textInput.addEventListener("keydown", (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); analyzeText(); } });
 </script>
 
 
@@ -223,6 +223,7 @@ async function analyzeText() {
 
 
 </html>
+
 
 
 
