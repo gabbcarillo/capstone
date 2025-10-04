@@ -80,81 +80,56 @@
     </footer>
 
 
-    <script>
-        let gaugeChart;
+   <script>
+let gaugeChart;
 
-        const gaugeNeedle = {
-            id: 'gaugeNeedle',
-            afterDatasetDraw(chart) {
-                const { ctx } = chart;
-                const needleAngle = chart.config.options.needleAngle;
-                const cx = chart._metasets[0].data[0].x;
-                const cy = chart._metasets[0].data[0].y;
+// Gauge needle plugin
+const gaugeNeedle = {
+    id: 'gaugeNeedle',
+    afterDatasetDraw(chart) {
+        if (!chart.config.options.needleAngle) return;
 
-                const needleLength = (chart.chartArea.height / 2) * 0.8;
+        const { ctx } = chart;
+        const needleAngle = chart.config.options.needleAngle;
+        const meta = chart.getDatasetMeta(0);
+        const { x: cx, y: cy } = meta.data[0].getCenterPoint();
 
-                ctx.save();
-                ctx.translate(cx, cy);
-                ctx.rotate(needleAngle);
+        const needleLength = chart.chartArea.height / 2 * 0.8;
 
-                ctx.beginPath();
-                ctx.moveTo(-3, 0);
-                ctx.lineTo(0, -needleLength);
-                ctx.lineTo(3, 0);
-                ctx.closePath();
-                ctx.fillStyle = "#000";
-                ctx.fill();
-                ctx.restore();
+        ctx.save();
+        ctx.translate(cx, cy);
+        ctx.rotate(needleAngle);
 
-                // Center circle
-                ctx.beginPath();
-                ctx.arc(cx, cy, 8, 0, 2 * Math.PI);
-                ctx.fillStyle = "#000";
-                ctx.fill();
-            }
-        };
+        ctx.beginPath();
+        ctx.moveTo(-3, 0);
+        ctx.lineTo(0, -needleLength);
+        ctx.lineTo(3, 0);
+        ctx.closePath();
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.restore();
 
-        function calculateNeedleAngle(negativeProb, neutralProb, positiveProb) {
-            // Normalize to avoid floating rounding issues
-            const total = negativeProb + neutralProb + positiveProb;
-            const neg = negativeProb / total;
-            const neu = neutralProb / total;
-            const pos = positiveProb / total;
+        // Center circle
+        ctx.beginPath();
+        ctx.arc(cx, cy, 8, 0, 2 * Math.PI);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+    }
+};
 
-            console.log("Normalized probs:", { neg, neu, pos });
+// Register plugin
+Chart.register(gaugeNeedle);
 
-            const NEG_START = -90, NEG_END = -30;
-            const NEU_START = -30, NEU_END = 30;
-            const POS_START = 30, POS_END = 90;
+// Convert sentiment probabilities to needle angle
+function calculateNeedleAngle(negativeProb, neutralProb, positiveProb) {
+    const total = negativeProb + neutralProb + positiveProb;
+    const neg = negativeProb / total;
+    const neu = neutralProb / total;
+    const pos = positiveProb / total;
 
-            let dominantSentiment;
-            if (pos >= neg && pos >= neu) dominantSentiment = "positive";
-            else if (neg >= neu) dominantSentiment = "negative";
-            else dominantSentiment = "neutral";
-
-            let angleDeg = 0;
-            if (dominantSentiment === "positive") {
-                const relative = pos / (pos + neu + neg);
-                angleDeg = POS_START + relative * (POS_END - POS_START);
-            } else if (dominantSentiment === "negative") {
-                const relative = neg / (pos + neu + neg);
-                angleDeg = NEG_END - relative * (NEG_END - NEG_START);
-            } else {
-                angleDeg = 0;
-                if (pos > neg) {
-                    const lean = (pos - neg) * 50; // lean towards positive side
-                    angleDeg = Math.min(25, lean);
-                } else if (neg > pos) {
-                    const lean = (neg - pos) * 50; // lean towards negative side
-                    angleDeg = Math.max(-25, -lean);
-                }
-            }
-
-            angleDeg = Math.max(-90, Math.min(90, angleDeg));
-            console.log("Needle angle:", angleDeg);
-
-            return (angleDeg * Math.PI) / 180;
-        }
+    // Map sentiment to angle: -90° (neg) → 0° (neu) → 90° (pos)
+    return ((pos - neg) * 90 * Math.PI / 180);
+}
 
 async function analyzeText() {
     const text = document.getElementById('textInput').value.trim();
@@ -164,37 +139,36 @@ async function analyzeText() {
     }
 
     try {
-        const response = await fetch("/api/model_api", {
+        const response = await fetch("https://huggingface.co/spaces/gabb11/sentiment-analyzer/api/predict/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ text })
+            body: JSON.stringify({ data: [text] }) // Hugging Face expects an array
         });
 
-        const result = await response.json();
-        console.log("API raw response:", result);
+        const hfResult = await response.json();
+        console.log("HF API response:", hfResult);
 
-        // ✅ Directly use result since your API returns flat JSON
-        const sentiment = result.sentiment || null;
+        // Hugging Face API may return { "data": [ { sentiment:..., probabilities:... } ] }
+        const result = hfResult.data?.[0] || hfResult;
+
+        const sentiment = result.sentiment;
         const confidence = result.confidence ? (result.confidence * 100).toFixed(1) : 0;
         const probabilities = result.probabilities || {};
-
-        if (!sentiment) {
-            throw new Error("Invalid API response: " + JSON.stringify(result));
-        }
 
         const negativeProb = probabilities.negative || 0;
         const neutralProb = probabilities.neutral || 0;
         const positiveProb = probabilities.positive || 0;
 
-        // Pick an icon depending on sentiment
-        let iconHtml;
-        if (sentiment === "negative") iconHtml = '<i class="fa-solid fa-face-frown" style="color:#F44336"></i>';
-        else if (sentiment === "neutral") iconHtml = '<i class="fa-solid fa-face-meh" style="color:#FFC107"></i>';
-        else iconHtml = '<i class="fa-solid fa-face-smile" style="color:#4CAF50"></i>';
+        // Choose icon
+        let iconHtml = '<i class="fa-solid fa-face-meh" style="color:#FFC107"></i>'; // default neutral
+        if (sentiment === "positive") iconHtml = '<i class="fa-solid fa-face-smile" style="color:#4CAF50"></i>';
+        else if (sentiment === "negative") iconHtml = '<i class="fa-solid fa-face-frown" style="color:#F44336"></i>';
 
-        // Rebuild chart
+        // Update chart
         const ctx = document.getElementById("gaugeChart").getContext("2d");
         if (gaugeChart) gaugeChart.destroy();
+
+        const needleAngle = calculateNeedleAngle(negativeProb, neutralProb, positiveProb);
 
         gaugeChart = new Chart(ctx, {
             type: "doughnut",
@@ -211,7 +185,8 @@ async function analyzeText() {
                 circumference: 180,
                 cutout: "70%",
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { enabled: false } }
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                needleAngle: needleAngle // pass angle to plugin
             }
         });
 
@@ -234,34 +209,12 @@ async function analyzeText() {
 
     } catch (err) {
         console.error("Frontend error:", err);
-        alert("Error connecting to Hugging Face Space API.");
+        alert("Failed to connect to Hugging Face Space API.");
     }
 }
+       // Clear button const textInput = document.getElementById("textInput"); const clearBtn = document.querySelector(".clear-btn"); textInput.addEventListener("input", () => { clearBtn.style.display = textInput.value ? "block" : "none"; }); function clearText() { textInput.value = ""; clearBtn.style.display = "none"; document.getElementById("results").style.display = "none"; } // Enter key handler textInput.addEventListener("keydown", (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); analyzeText(); } });
+</script>
 
-
-
-        // Clear button
-        const textInput = document.getElementById("textInput");
-        const clearBtn = document.querySelector(".clear-btn");
-
-        textInput.addEventListener("input", () => {
-            clearBtn.style.display = textInput.value ? "block" : "none";
-        });
-
-        function clearText() {
-            textInput.value = "";
-            clearBtn.style.display = "none";
-            document.getElementById("results").style.display = "none";
-        }
-
-        // Enter key handler
-        textInput.addEventListener("keydown", (event) => {
-            if (event.key === "Enter" && !event.shiftKey) {
-                event.preventDefault();
-                analyzeText();
-            }
-        });
-    </script>
 
 
 
@@ -270,6 +223,7 @@ async function analyzeText() {
 
 
 </html>
+
 
 
 
