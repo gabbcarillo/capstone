@@ -152,7 +152,7 @@ async function analyzeText() {
     }
 
     try {
-        const response = await fetch("https://api-4-92co.onrender.com", { 
+        const response = await fetch("https://api-4-92co.onrender.com/predict", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text })
@@ -263,6 +263,7 @@ textInput.addEventListener("keydown", (event) => {
 </body>
 
 </html>
+
 
 
 
