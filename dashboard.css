@@ -486,12 +486,19 @@ main {
 
   .header-title {
     font-size: 18px;
+    margin-right: 125px;
   }
 
-  .home-btn {
-    padding: 6px 14px;
-    font-size: 14px;
+  .burger {
+    font-size: 28px;
   }
+ .home-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  margin-left: 290px;   /* pushes sideways */
+  margin-top: -10px;    /* moves it upward */
+}
+
 
   .card {
     padding: 16px;
@@ -511,5 +518,50 @@ main {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+  }
+}
+/* ===== FIX: Product Name Wrapping + Card Layout on Mobile ===== */
+.card h3.product-name {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  margin: 10px 0;
+  white-space: normal;       /* allow wrapping */
+  word-wrap: break-word;     /* break long words if needed */
+  overflow-wrap: break-word; /* better support */
+  line-height: 1.3;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .product-img-wrapper {
+    max-width: 180px;
+    margin: 0 auto 10px;
+  }
+
+  .gauge-wrapper {
+    margin-top: 10px;
+  }
+}
+
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .site-footer {
+    font-size: 13px;
+    padding: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 12px;
+    padding: 12px;
+    line-height: 1.4;
   }
 }

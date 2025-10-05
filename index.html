@@ -34,6 +34,8 @@
                 <img src="./Assets/leviot logo.png" alt="Levoit Logo" class="logo" />
             </div>
 
+            <button class="burger">☰</button>
+
             <nav class="nav-links">
                 <a href="#products" class="nav-link" id="product">Air Purifiers</a>
                 <a href="#tools" class="nav-link" id="tool">Text Analysis</a>
@@ -195,3 +197,12 @@
 </body>
 
 </html>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const navLinks = document.querySelector(".nav-links");
+
+  burger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>

@@ -21,6 +21,8 @@
                 </a>
             </div>
 
+            <button class="burger">☰</button>
+            
             <nav class="nav-links">
                 <a href="index.html#products" class="nav-link">Air Purifiers</a>
                 <a href="index.html#tools" class="nav-link">Text Analysis</a>
@@ -80,7 +82,7 @@
     </footer>
 
 
-  <script>
+   <script>
 let gaugeChart;
 
 const gaugeNeedle = {
@@ -135,7 +137,6 @@ function calculateNeedleAngle(negativeProb, neutralProb, positiveProb) {
         const relative = neg / (pos + neu + neg);
         angleDeg = NEG_END - relative * (NEG_END - NEG_START);
     } else {
-        angleDeg = 0;
         if (pos > neg) angleDeg = Math.min(25, (pos - neg) * 50);
         else if (neg > pos) angleDeg = Math.max(-25, -(neg - pos) * 50);
     }
@@ -151,13 +152,14 @@ async function analyzeText() {
     }
 
     try {
-        const response = await fetch("https://api-4-92co.onrender.com/predict", { 
+        const response = await fetch("http://127.0.0.1:5000/predict", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text })
         });
 
         const result = await response.json();
+
         if (result.error) {
             alert(result.error);
             return;
@@ -177,10 +179,11 @@ async function analyzeText() {
 
         const needleAngle = calculateNeedleAngle(negativeProb, neutralProb, positiveProb);
 
-        let iconHtml;
-        if (sentiment === "negative") iconHtml = '<i class="fa-solid fa-face-frown" style="color:#F44336"></i>';
-        else if (sentiment === "neutral") iconHtml = '<i class="fa-solid fa-face-meh" style="color:#FFC107"></i>';
-        else iconHtml = '<i class="fa-solid fa-face-smile" style="color:#4CAF50"></i>';
+        let iconHtml = sentiment === "negative"
+            ? '<i class="fa-solid fa-face-frown" style="color:#F44336"></i>'
+            : sentiment === "neutral"
+            ? '<i class="fa-solid fa-face-meh" style="color:#FFC107"></i>'
+            : '<i class="fa-solid fa-face-smile" style="color:#4CAF50"></i>';
 
         const ctx = document.getElementById("gaugeChart").getContext("2d");
         if (gaugeChart) gaugeChart.destroy();
@@ -201,10 +204,7 @@ async function analyzeText() {
                 cutout: "70%",
                 needleAngle: needleAngle,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: { enabled: false }
-                }
+                plugins: { legend: { display: false }, tooltip: { enabled: false } }
             },
             plugins: [gaugeNeedle]
         });
@@ -215,9 +215,7 @@ async function analyzeText() {
 
         const sentimentText = document.getElementById("sentimentText");
         sentimentText.innerHTML = `
-            <h3 style="color:${
-                sentiment === "positive" ? "#4CAF50" : sentiment === "negative" ? "#F44336" : "#FFC107"
-            }; margin-bottom: 15px;"> 
+            <h3 style="color:${sentiment === "positive" ? "#4CAF50" : sentiment === "negative" ? "#F44336" : "#FFC107"}; margin-bottom:15px;">
                 ${sentiment.charAt(0).toUpperCase() + sentiment.slice(1)} Sentiment
             </h3>
             <p class="sentiment-text">
@@ -229,7 +227,7 @@ async function analyzeText() {
 
     } catch (err) {
         console.error(err);
-        alert("Error connecting to backend.");
+        alert("Error connecting to backend. Make sure your Flask API is running at http://127.0.0.1:5000");
     }
 }
 
@@ -252,6 +250,14 @@ textInput.addEventListener("keydown", (event) => {
         analyzeText();
     }
 });
+
+  const burger = document.querySelector(".burger");
+  const navLinks = document.querySelector(".nav-links");
+
+  burger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+</script>
 </script>
 
 </body>

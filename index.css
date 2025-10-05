@@ -453,7 +453,7 @@ section {
     color: #4A4A4A;
     padding: 30px 20px 70px;
     text-align: center;
-     display: flex;              /* NEW */
+    display: flex;              /* NEW */
     flex-direction: column;     /* stack content */
     align-items: center;        /* center horizontally */
     justify-content: center;
@@ -531,11 +531,11 @@ section {
     /* ===== HERO TITLES ===== */
     .title_1 h1,
     .title_2 h1 {
-        font-size: 2.2rem; /* scales down hero titles */
+        font-size: 30px; 
     }
 
     .title_2 {
-        margin-left: 10px; /* smaller margin for mobile */
+        margin-left: 2px; 
     }
 
     /* ===== CTA BUTTONS ===== */
@@ -569,6 +569,7 @@ section {
     .logo-container.sticky {
         padding: 15px 10px;
     }
+    
 
     .cart-icon {
         margin-right: 0;
@@ -576,19 +577,40 @@ section {
 
     /* ===== HERO SECTION ===== */
     .hero {
-        height: 60vh; /* shrink hero height on mobile */
+        height: 60vh; 
+    }
+
+    .hero-text {
+        padding: 0%;
+    }
+    .hero-img{
+        transform: scale(1.2); 
     }
 
     .hero-text,
     .subtitle,
     .products-subtitle,
     .analysis-section p {
-        font-size: 14px; /* resize text for mobile */
+        font-size: 14px; 
     }
 
+    .subtitle p{
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .hero-text p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+    
     /* ===== PRODUCTS GRID ===== */
+
+    .products-frame h2{
+        font-size: 20px;
+    }
     .product-grid {
-        grid-template-columns: 1fr; /* single column */
+        grid-template-columns: 1fr; 
         gap: 20px;
         padding: 0 10px;
     }
@@ -598,26 +620,42 @@ section {
         max-width: 250px;
     }
 
-    /* Images scale */
+    
     img, .hero-img, .product-image img {
         width: 100%;
         height: auto;
     }
 
+    .hero-img {
+        height: 100%;
+        object-fit: cover;
+    }
     /* ===== ANALYSIS SECTION ===== */
     .analysis-features {
-        grid-template-columns: 1fr; /* single column stack */
-        padding: 0 10px;
+        grid-template-columns: 1fr; 
+        padding: 0 5px;
         gap: 15px;
+        max-width: 90%;
+        margin-left: 3px;
     }
 
+    
     .analysis-section h2 {
-        font-size: 28px;
+        font-size: 20px;
+        margin-right: 25px;
     }
 
     .analysis-section p {
         font-size: 14px;
         max-width: 90%;
+        margin-left: 5px;
+    }
+    .hero-btn2{
+        margin-right: 35px;
+    }
+
+    .hero-btn2 a{
+        font-size: 12px;
     }
 
     /* ===== FRAME & SECTIONS PADDING ===== */
@@ -633,4 +671,108 @@ section {
     .banner-container {
         font-size: 12px;
     }
+    .logo-wrapper img {
+        height: 25px;
+    }
+    .button-container img {
+        height: 25px;   
+        width: auto;
+    }
 }
+
+/* ===== DECOR BLOBS RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .decor-blob {
+    width: 60px;
+    height: 60px;
+  }
+  .decor-teal {
+    width: 55px;
+    height: 55px;
+  }
+
+  .decor-blob svg {
+    margin-top: -10px;
+    margin-left: -5px;
+  }
+
+  .decor-teal svg {
+    margin-left: 7px;
+  }
+}
+
+/* ===== BURGER MENU ===== */
+
+.burger {
+  display: none;              
+  background: none;           
+  border: none;
+  font-size: 25px;            
+  cursor: pointer;
+  color: #2c2c2c;
+}
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;           
+    margin-left: auto;
+    z-index: 1001;
+  }
+
+  .nav-links {
+    display: none;            
+    flex-direction: column;
+    gap: 15px;
+    background: #fff;
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    
+  }
+
+  .nav-links a {
+    font-size: 13px;          
+  }
+
+  .nav-links.active {
+    display: flex;            
+  }
+}
+@media (max-width: 768px) {
+  .hero-btn,
+  .hero-btn2 {
+    font-size: 13px;
+    padding: 8px 16px;
+    min-width: 120px;  
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .site-footer {
+    font-size: 13px;
+    padding: 15px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .site-footer {
+    font-size: 12px;
+    padding: 10px;
+    line-height: 1.4;
+    text-align: justify;
+  }
+}
+
+  
+
+  
