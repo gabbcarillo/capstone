@@ -75,13 +75,6 @@
                 </section>
             </div>
 
-            <!-- Loading overlay -->
-            <div id="loading-overlay" class="loading-overlay" style="display: none;">
-                <div class="loading-box">
-                    <div class="spinner"></div>
-                    <p>Please wait...</p>
-                </div>
-            </div>
 
         </section>
     </main>
@@ -93,8 +86,7 @@
 
     <script>
         let gaugeChart;
-         const loader = document.getElementById("loading-overlay"); 
-
+        
         const gaugeNeedle = {
             id: 'gaugeNeedle',
             afterDatasetDraw(chart) {
@@ -160,7 +152,6 @@
                 alert("Please enter some text to analyze.");
                 return;
             }
-             loader.style.display = "flex"; // Show loader
 
             try {
                 const response = await fetch("https://api-4-92co.onrender.com/predict", {
@@ -170,7 +161,6 @@
                 });
 
                 const result = await response.json();
-                 loader.style.display = "none"; // Hide loader
 
                 if (result.error) {
                     alert(result.error);
@@ -238,9 +228,8 @@
                 sentimentText.className = "sentiment-text " + sentiment;
 
             } catch (err) {
-                 loader.style.display = "none"; // Hide loader if error
                 console.error(err);
-                alert("Error connecting to backend. Make sure your Flask API is running at http://127.0.0.1:5000");
+                alert("Error connecting to backend.");
             }
         }
 
@@ -277,3 +266,4 @@
 
 
 </html>
+
