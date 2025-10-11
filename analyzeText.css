@@ -429,7 +429,7 @@
         grid-template-columns: auto 1fr auto;
         align-items: center;
         background: #ffffff;
-        padding: 15px 40px;
+        padding: 15px 20px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
         transition: background 0.3s ease, box-shadow 0.3s ease;
 
@@ -438,6 +438,12 @@
     .logo-container.sticky {
         padding: 15px 20px;
     }
+     .header-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: auto;
+    }
      
     .logo-wrapper img {
         height: 25px;
@@ -445,6 +451,7 @@
     .button-container img {
         height: 25px;   
         width: auto;
+        margin-left: 170px;
     }
   }
 
@@ -479,6 +486,7 @@
     font-size: 12px;
     padding: 10px;
     line-height: 1.4;
+    text-align: center;
   }
 }
 

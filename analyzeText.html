@@ -14,15 +14,12 @@
 
 <body>
     <header>
+
         <div class="logo-container">
             <div class="logo-wrapper">
-                <a href="index.html">
-                    <img src="./Assets/leviot logo.png" alt="Levoit Logo" class="logo" />
-                </a>
+                <img src="./Assets/leviot logo.png" alt="Levoit Logo" class="logo" />
             </div>
 
-            <button class="burger">☰</button>
-            
             <nav class="nav-links">
                 <a href="index.html#products" class="nav-link">Air Purifiers</a>
                 <a href="index.html#tools" class="nav-link">Text Analysis</a>
@@ -30,10 +27,14 @@
                 <a href="user_guide.pdf" target="_blank" class="nav-link">User Guide</a>
             </nav>
 
-            <div class="button-container">
-                <a href="https://www.levoit.com.ph/" target="_blank">
-                    <img src="./Assets/cart.png" class="cart-icon" alt="Shopping Cart" />
-                </a>
+            <div class="header-right">
+                <div class="button-container">
+                    <a href="https://www.levoit.com.ph/" target="_blank">
+                        <img src="./Assets/cart.png" class="cart-icon" alt="Shopping Cart" />
+                    </a>
+                </div>
+
+                <button class="burger">☰</button>
             </div>
         </div>
     </header>
@@ -153,7 +154,7 @@ async function analyzeText() {
     }
 
     try {
-        const response = await fetch("https://api-4-92co.onrender.com/predict", { 
+        const response = await fetch("http://127.0.0.1:5000/predict", { 
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ text })
@@ -264,6 +265,4 @@ textInput.addEventListener("keydown", (event) => {
 </body>
 
 </html>
-
-
 
