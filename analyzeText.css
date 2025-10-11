@@ -410,7 +410,7 @@
 
     .spinner {
       border: 6px solid #e0e0e0;
-      border-top: 6px solid #4CAF50;
+      border-top: 6px solid #2D3E50;
       border-radius: 50%;
       width: 60px;
       height: 60px;
@@ -566,4 +566,5 @@
     display: flex;
   }
 }
+
 
