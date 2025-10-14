@@ -1,6 +1,6 @@
 {
-    "product_name": "Levoit Core ®  Mini-P Air Purifier",
-    "avg_rating": 3.16,
+    "product_name": "Levoit Core® Mini-P Air Purifier",
+    "avg_rating": 4.05,
     "sentiment_breakdown": {
         "positive": 76,
         "negative": 14,
@@ -49,9 +49,9 @@
         }
     ],
     "sample_reviews": [
-        "purchased for tenant who lives in my rental property, I was told the product works perfectly, and they were quite pleased with the air quality. Definitely a good choice for this purchase.",
+        "This air purifier unit has worked just great for years. I love that you can remotely control it. I like that you can set up a schedule and set quiet mode and see when you need to change filters and connect up to Alexa if necessary and turn on and off when you�re not at home great unit for the price recommend!",
         "This is an excellent product...just the right size, 3 speeds to choose from, very easy to use, and even looks great sitting where you place it. I loved it so much that I bought a second one for another room.",
-        "Quiet, works well and perfect for an office setting. Easy to set up, the cord is a little short but great for on top of a desk"
+        "Such a good product. I leave it near my cat's litter box and it prevents the smell pretty well."
     ],
     "wordcloud_file": "dashboard_data/product1_wc.png"
 }

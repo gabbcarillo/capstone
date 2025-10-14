@@ -1,6 +1,6 @@
 {
-    "product_name": "Levoit Core ®  600S Smart Air Purifier",
-    "avg_rating": 2.45,
+    "product_name": "Levoit Core® 600S Smart Air Purifier",
+    "avg_rating": 3.73,
     "sentiment_breakdown": {
         "positive": 70,
         "negative": 21,
@@ -49,9 +49,9 @@
         }
     ],
     "sample_reviews": [
-        "We bought this for our daughter because of four cats in her home.  It made quite a difference in the air quality in her house, especially since she has seasonal allergies.  It worked so well we bought another one for a different area of her house.  Filters are readily available on Amazon, and it is amazing to see the debris that is collected in these compact air purifiers.",
-        "After 10 months we still haven�t had the signal to change the filter. I changed the filter and it was so easy, that I bought another Levoit with smart technology. Great product!",
-        "Levoit Air PurifierGreadt product, looks good, and it does the job."
+        "Used this every day since we got it! We have had to change the filter twice in maybe 2 years and we did have a dog. It worked great for a larger room like a living room or bigger bed room.",
+        "Very quiet operation and is a quality air purifier. Changing the filter is easy with inexpensive replacements plentiful.",
+        "This is truly an excellent device�for people with allergies and really for anyone. It cleans and purifies the air in your comfort zone. I highly recommend it; I use it daily, every night. Best wishes!"
     ],
     "wordcloud_file": "dashboard_data/product4_wc.png"
 }

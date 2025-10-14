@@ -1,6 +1,6 @@
 {
-    "product_name": "Levoit Core ®  300-P Air Purifier",
-    "avg_rating": 2.72,
+    "product_name": "Levoit Core® 300-P Air Purifier",
+    "avg_rating": 3.88,
     "sentiment_breakdown": {
         "positive": 74,
         "negative": 19,
@@ -49,9 +49,9 @@
         }
     ],
     "sample_reviews": [
-        "The wifi feature is great! The air quality is wonderful as well",
-        "Works great.  Love the ease of the app",
-        "Loving the WiFi access as I learn which settings are best for me with mild allergies and a new pup. Quiet and seems to be working well."
+        "Perfect size for one room, very efficient and very quiet.",
+        "I am loving this and it has smart features to let me know when the screen needs to be wiped off and lets me know to turn it on when it detects bad air quality.",
+        "Great item! App works great to control it. Really quiet on fan setting 1, you can hardly hear it."
     ],
     "wordcloud_file": "dashboard_data/product2_wc.png"
 }

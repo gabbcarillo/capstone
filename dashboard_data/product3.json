@@ -1,6 +1,6 @@
 {
     "product_name": "Levoit Vital 100 Air Purifier",
-    "avg_rating": 2.61,
+    "avg_rating": 3.7,
     "sentiment_breakdown": {
         "positive": 70,
         "negative": 22,
@@ -49,9 +49,9 @@
         }
     ],
     "sample_reviews": [
-        "This is our second LEVOIT purifier and I love how it can purify the air in our whole house. The cool think is the monitor that shows the quality of indoor air.",
-        "I love this thing. So very easy to use and cleans the air both from dust and viral particles. I wish I had bought it years ago.",
-        "I could not breathe due to pet allergies before getting this. I absolutely love it!  Less dusting too!"
+        "Works great.  Still playing with the settings to fine tune how I want it to run for me.  Easy setup and easy to operate using the touch on the unit or the app.  Waiting to see how much of a difference it will make with the dust and cat hair.",
+        "I could not breathe due to pet allergies before getting this. I absolutely love it!  Less dusting too!",
+        "I love the Lovoit Air Purifier. It is very effective in removing dust and is very quiet."
     ],
     "wordcloud_file": "dashboard_data/product3_wc.png"
 }

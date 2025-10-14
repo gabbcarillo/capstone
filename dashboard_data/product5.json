@@ -1,6 +1,6 @@
 {
     "product_name": "Levoit Vital 100S Smart Air Purifier",
-    "avg_rating": 2.77,
+    "avg_rating": 3.7,
     "sentiment_breakdown": {
         "positive": 70,
         "negative": 22,
@@ -49,9 +49,9 @@
         }
     ],
     "sample_reviews": [
-        "A must have in the home. It's easy to clean and definitely works!",
-        "I have 2 large dogs and bought these to help clear the air from their hair/dandruff. Plus I live on a dirt road and my house can get dusty real easily. It does really good and the fact that you can clean the filter is a huge bonus. I have one set up in my bedroom and one in my main living area but plan on purchasing another one for the main room due to the size.",
-        "IT PROVIDES US WITH A BALANCE IN THE HEALTH OF OUR BREATHING EXCELLENT INVESTMENT"
+        "Quiet and powerful",
+        "I've had this air purifier for almost 5 years. It has worked great from day one. I've never had a problem with this unit, and it removes odors really well. I would highly recommend this product.",
+        "I bought this months ago and waited to review it. I use it in the bedroom where I have a cat sleeping in that room and wanted to make sure the air quality was improved.  It is quiet and efficient and happy to have purchased it.  Can recommend that it is a good investment and I used it for a length of time with no problems."
     ],
     "wordcloud_file": "dashboard_data/product5_wc.png"
 }
