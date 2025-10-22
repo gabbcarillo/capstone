@@ -1,7 +1,7 @@
 console.log("✅ uploadHistory.js loaded");
 
 function loadUploadHistory() {
-  fetch("http://127.0.0.1:5000/uploaded_files")
+  fetch("https://api-4-92co.onrender.com/uploaded_files")
     .then(res => res.json())
     .then(data => {
       const tbody = document.querySelector("#uploadTable tbody");
@@ -30,3 +30,4 @@ document.getElementById("productFilter").addEventListener("change", e => {
 
 // ✅ Load data when page finishes loading
 window.onload = loadUploadHistory;
+
