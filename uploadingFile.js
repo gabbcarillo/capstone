@@ -66,7 +66,7 @@ fileInput.addEventListener('change', (e) => {
       formData.append("file", file);
       formData.append("product_name", productName);  // <-- send product name
 
-      fetch("http://127.0.0.1:5000/upload", {
+      fetch("https://api-4-92co.onrender.com/upload", {
         method: "POST",
         body: formData,
       })
@@ -83,4 +83,5 @@ fileInput.addEventListener('change', (e) => {
           console.error(err);
           status.innerHTML = '<span style="color: red;">✖ Upload failed.</span>';
         });
+
     }
