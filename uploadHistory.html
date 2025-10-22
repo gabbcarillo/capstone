@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload History | Levoit Sentiment System</title>
+  <link rel="stylesheet" href="uploadHistory.css">
+</head>
+
+<body>
+  <header>
+    <h1>Upload History</h1>
+    <a href="uploadingFile.html" class="back-btn">← Back to Dashboard</a>
+  </header>
+
+  <main>
+    <section id="uploadHistory">
+      <h2>Review Upload History</h2>
+
+      <label for="productFilter">Filter by Product:</label>
+      <select id="productFilter">
+        <option value="All">All</option>
+        <option value="Levoit Core® Mini Air Purifier">Levoit Core® Mini Air Purifier</option>
+        <option value="Levoit Core® 300 Air Purifier">Levoit Core® 300 Air Purifier</option>
+        <option value="Levoit Vital 100 Air Purifier">Levoit Vital 100 Air Purifier</option>
+        <option value="Levoit Core® 600S Smart Air Purifier">Levoit Core® 600S Smart Air Purifier</option>
+        <option value="Levoit Vital 100S Smart Air Purifier">Levoit Vital 100S Smart Air Purifier</option>
+        <option value="Levoit Core® 200S Smart Air Purifier">Levoit Core® 200S Smart Air Purifier</option>
+      </select>
+
+      <table id="uploadTable" border="1" style="color:black; background:white;">
+
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Filename</th>
+            <th>Upload Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Filled by JS -->
+        </tbody>
+      </table>
+
+    </section>
+  </main>
+
+  <script src="uploadHistory.js"></script>
+</body>
+
+</html>

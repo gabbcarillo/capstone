@@ -163,3 +163,13 @@ if (data.customer_descriptions && data.customer_descriptions.length > 0) {
 }
 
 loadDashboard();
+ // //const jsonUrl = "http://127.0.0.1:5000/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
+
+    // Fetch JSON data
+    //const res = await fetch(jsonUrl);
+    //if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
+    //const data = await res.json();
+
+
+    ///  //const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
+    ///const wordcloudImg = document.getElementById("wordcloudImg");

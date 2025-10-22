@@ -5,7 +5,11 @@ burger.addEventListener("click", () => sidebar.classList.toggle("active"));
 
 async function loadDashboard() {
   try {
-    const res = await fetch("dashboard_data/product1.json");
+    const jsonUrl = "http://127.0.0.1:5000/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
+
+    // Fetch JSON data
+    const res = await fetch(jsonUrl);
+    if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
     const data = await res.json();
 
     // Product Name + Rating
@@ -76,7 +80,7 @@ async function loadDashboard() {
         labels: ["Negative", "Neutral", "Positive"],
         datasets: [{
           data: [pct.negative, pct.neutral, pct.positive],
-          backgroundColor: [chartNegative, chartNeutral, chartPositive],
+          backgroundColor: [chartNegative, chartNeutral, chartPositive], 
           borderWidth: 0,
           hoverOffset: 0
         }]
@@ -104,18 +108,18 @@ async function loadDashboard() {
           borderWidth: 0
         }]
       },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: false },
-          tooltip: { enabled: true }
-        },
-        cutout: "65%",
-        layout: {
-          padding: 10
-        }
-      }
+     options: {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    tooltip: { enabled: true }
+  },
+  cutout: "65%",
+  layout: {
+    padding: 10
+  }
+}
 
     });
 
@@ -125,10 +129,15 @@ async function loadDashboard() {
     document.getElementById("neuPct").textContent = `${pct.neutral.toFixed(0)}%`;
 
     // Wordcloud
-    document.getElementById("wordcloudImg").src = data.wordcloud_file;
+    // Wordcloud
+const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
+const wordcloudImg = document.getElementById("wordcloudImg");
+wordcloudImg.src = wordcloudUrl;
+wordcloudImg.alt = "Wordcloud not found";
+
 
     // Customer Loves
- const lovesList = document.getElementById("lovesList");
+const lovesList = document.getElementById("lovesList");
 lovesList.innerHTML = "";
 if (data.customer_descriptions && data.customer_descriptions.length > 0) {
   // Calculate total count
@@ -142,6 +151,7 @@ if (data.customer_descriptions && data.customer_descriptions.length > 0) {
     );
   });
 }
+
 
 
     // Review Highlights
@@ -162,3 +172,13 @@ if (data.customer_descriptions && data.customer_descriptions.length > 0) {
 }
 
 loadDashboard();
+ // //const jsonUrl = "http://127.0.0.1:5000/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
+
+    // Fetch JSON data
+    //const res = await fetch(jsonUrl);
+    //if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
+    //const data = await res.json();
+
+
+    ///  //const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
+    ///const wordcloudImg = document.getElementById("wordcloudImg");

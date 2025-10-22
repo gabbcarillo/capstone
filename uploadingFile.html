@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Upload | Levoit Sentiment System</title>
+  <link rel="stylesheet" href="uploadingFile.css">
+</head>
+
+<body>
+ <header>
+  <h1>Admin Dashboard</h1>
+  <div class="header-buttons">
+    <a href="uploadHistory.html" class="history-btn">View Upload History</a>
+    <a href="login.html" class="logout-btn">Log Out</a>
+  </div>
+</header>
+
+  </header>
+
+  <!-- PRODUCT SELECTION SECTION -->
+  <section class="frame products-frame" id="products">
+    <h2>Levoit Air Purifier Model</h2>
+    <div class="product-grid">
+      <div class="product">
+        <div class="product-image">
+          <img
+            src="https://levoit.com/cdn/shop/products/levoit-core-mini-air-purifier-white-879881.jpg?v=1706049784&width=768"
+            alt="Levoit Core® Mini Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Core® Mini Air Purifier')">Upload new reviews</button>
+          </div>
+        </div>
+        <p>Levoit Core® Mini-P Air Purifier</p>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img src="https://levoit.com/cdn/shop/products/levoit-core-300-air-purifier-791897.jpg?v=1706049661&width=768"
+            alt="Levoit Core® 300 Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Core® 300 Air Purifier')">Upload new reviews</button>
+          </div>
+        </div>
+        <p>Levoit Core® 300-P Air Purifier</p>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img
+            src="https://levoit.com/cdn/shop/products/vital-100-true-hepa-air-purifier-158695.jpg?v=1706049807&width=768"
+            alt="Levoit Vital 100 Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Vital 100 Air Purifier')">Upload new reviews</button>
+          </div>
+        </div>
+        <p>Levoit Vital 100 Air Purifier</p>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img
+            src="https://levoit.com/cdn/shop/products/levoit-core-600s-smart-air-purifier-305037.jpg?v=1706049784&width=768"
+            alt="Levoit Core® 600S Smart Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Core® 600S Smart Air Purifier')">Upload new
+              reviews</button>
+          </div>
+        </div>
+        <p>Levoit Core® 600S Smart Air Purifier</p>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img
+            src="https://levoit.com/cdn/shop/products/vital-100s-smart-true-hepa-air-purifier-295620.jpg?v=1706049812&width=768"
+            alt="Levoit Vital 100S Smart Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Vital 100S Smart Air Purifier')">Upload new
+              reviews</button>
+          </div>
+        </div>
+        <p>Levoit Vital 100S Smart Air Purifier</p>
+      </div>
+
+      <div class="product">
+        <div class="product-image">
+          <img
+            src="https://levoit.com/cdn/shop/products/levoit-core-200s-smart-air-purifier-961887.jpg?v=1706049779&width=768"
+            alt="Levoit Core® 200S Smart Air Purifier" />
+          <div class="overlay">
+            <button class="view-btn" onclick="showUpload('Levoit Core® 200S Smart Air Purifier')">Upload new
+              reviews</button>
+          </div>
+        </div>
+        <p>Levoit Core® 200S Smart Air Purifier</p>
+      </div>
+    </div>
+  </section>
+  <!-- UPLOAD AREA -->
+  <main id="uploadSection">
+    <span class="back-btn" onclick="goBack()">← Back to Products</span>
+    <h2 id="uploadTitle">Upload New Review Data</h2>
+    <div class="upload-area" id="uploadArea">
+      <div class="upload-icon">
+        <img src="uploadIcon.png" alt="Upload Icon">
+      </div>
+
+      <p>Drag and drop your Excel file here</p>
+      <label for="fileInput" class="choose-btn">Choose File</label>
+      <input type="file" id="fileInput" accept=".xlsx" />
+    </div>
+
+    <div class="progress-container" id="progressContainer"></div>
+  </main>
+ <script src="uploadingFile.js"></script>
+</body>
+
+</html>

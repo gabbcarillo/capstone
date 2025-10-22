@@ -91,6 +91,12 @@ header {
 }
 
 
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* ensures vertical alignment for all children */
+}
+
 .logo-wrapper {
     display: flex;
     justify-content: center;
@@ -109,8 +115,22 @@ header {
 
 .button-container {
     flex: 0 0 auto;
-    position: relative;
-    top: 4px;
+    display: flex;
+    align-items: center; 
+}
+
+.login-button {
+    background-color: #2D3E50; 
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #A6794C;
 }
 
 .nav-links {
@@ -152,11 +172,6 @@ header {
 }
 
 
-.cart-icon {
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-}
 
 .frame {
     width: 100%;
@@ -586,10 +601,6 @@ section {
         margin-left: auto;
     }
 
-
-    .cart-icon {
-        margin-right: 0;
-    }
 
     /* ===== HERO SECTION ===== */
     .hero {

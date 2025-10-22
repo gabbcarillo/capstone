@@ -1,0 +1,159 @@
+/* === General Page Layout === */
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fb;
+  color: #333;
+}
+
+/* === Header === */
+header {
+  background-color: #fff;
+color: #2D3E50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+header .back-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  background-color: #2D3E50;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+header .back-btn:hover {
+  background-color: #A6794C;
+}
+
+/* === Main Section === */
+main {
+  max-width: 1100px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+  text-align: center;
+  color: #2D3E50;
+  margin-bottom: 25px;
+}
+
+/* === Filter Dropdown === */
+label {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+#productFilter {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: 20px;
+}
+
+#productFilter:focus {
+  border-color: #1e88e5;
+}
+
+/* === Table Styling === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+thead {
+  background-color: #A6794C;
+  color: white;
+}
+
+thead th {
+  padding: 12px 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tbody td {
+  padding: 12px 15px;
+}
+
+tbody tr:hover {
+  background-color: #f1f7ff;
+}
+
+/* === Button in Table === */
+button {
+  background-color: #2D3E50;
+  border: none;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #1e88e5;
+  }
+}
