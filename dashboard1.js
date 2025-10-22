@@ -5,7 +5,7 @@ burger.addEventListener("click", () => sidebar.classList.toggle("active"));
 
 async function loadDashboard() {
   try {
-    const jsonUrl = "http://127.0.0.1:5000/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
+    const jsonUrl = "https://api-4-92co.onrender.com/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
 
     // Fetch JSON data
     const res = await fetch(jsonUrl);
@@ -181,4 +181,5 @@ loadDashboard();
 
 
     ///  //const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
+
     ///const wordcloudImg = document.getElementById("wordcloudImg");
