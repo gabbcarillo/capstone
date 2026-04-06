@@ -5,11 +5,7 @@ burger.addEventListener("click", () => sidebar.classList.toggle("active"));
 
 async function loadDashboard() {
   try {
-    const jsonUrl = "https://api-4-92co.onrender.com/dashboard_data/Levoit_Core®_Mini_Air_Purifier.json";
-
-    // Fetch JSON data
-    const res = await fetch(jsonUrl);
-    if (!res.ok) throw new Error(`Failed to load JSON: ${res.status}`);
+    const res = await fetch("dashboard_data/product1.json");
     const data = await res.json();
 
     // Product Name + Rating
@@ -129,12 +125,7 @@ async function loadDashboard() {
     document.getElementById("neuPct").textContent = `${pct.neutral.toFixed(0)}%`;
 
     // Wordcloud
-    // Wordcloud
-const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
-const wordcloudImg = document.getElementById("wordcloudImg");
-wordcloudImg.src = wordcloudUrl;
-wordcloudImg.alt = "Wordcloud not found";
-
+    document.getElementById("wordcloudImg").src = data.wordcloud_file;
 
     // Customer Loves
 const lovesList = document.getElementById("lovesList");
@@ -181,5 +172,4 @@ loadDashboard();
 
 
     ///  //const wordcloudUrl = jsonUrl.replace(".json", "_wc.png");
-
     ///const wordcloudImg = document.getElementById("wordcloudImg");
